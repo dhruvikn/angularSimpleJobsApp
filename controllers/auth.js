@@ -35,6 +35,8 @@ app.controller('authController', function ($rootScope, $scope, $timeout, $locati
                 return
             }
         } else {
+            $scope.registerSuccess = true;
+            
             let data = {
                 email: $scope.user.email,
                 password: $scope.user.password
@@ -44,7 +46,6 @@ app.controller('authController', function ($rootScope, $scope, $timeout, $locati
             $rootScope.user = JSON.parse(localStorage.getItem($scope.user.email));
 
             $timeout(() => {
-                $scope.registerSuccess = true;
                 $scope.isLoading = true;
                 $location.path("/dashboard");
             }, 2000);
