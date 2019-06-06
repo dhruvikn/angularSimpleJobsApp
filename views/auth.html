@@ -10,13 +10,15 @@
                     <hr>
 
                     <div class="alert-success p-3 mb-3" ng-if="registerSuccess">
-                        User registered succesfully.
+                        <i class="fas fa-circle-notch fa-spin text-light"></i>&nbsp;
+                        Registration successful. Logging you in, please wait...
                     </div>
 
                     <form name="authForm" ng-submit="auth()">
                         <div class="form-group">
                             <label for="email">Email</label>
-                            <input type="email" class="form-control" ng-model="user.email" autofocus required id="email">
+                            <input type="email" class="form-control" ng-model="user.email" autofocus required
+                                id="email">
                         </div>
                         <div class="form-group">
                             <label for="password">Password</label>

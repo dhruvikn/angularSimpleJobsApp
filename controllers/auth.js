@@ -41,12 +41,12 @@ app.controller('authController', function ($rootScope, $scope, $timeout, $locati
             }
 
             localStorage.setItem($scope.user.email, JSON.stringify(data));
+            $rootScope.user = JSON.parse(localStorage.getItem($scope.user.email));
 
             $timeout(() => {
-                $scope.togglePage();
-                $("#email").focus();
                 $scope.registerSuccess = true;
-                $scope.isLoading = false;
+                $scope.isLoading = true;
+                $location.path("/dashboard");
             }, 2000);
         }
     }
