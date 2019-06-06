@@ -1,0 +1,56 @@
+* {
+  color: #020202; }
+
+body {
+  background: #24C6DC;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top right, #514A9D, #24C6DC);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-gradient(linear, left bottom, right top, from(#514A9D), to(#24C6DC));
+  background: -webkit-linear-gradient(bottom left, #514A9D, #24C6DC);
+  background: -o-linear-gradient(bottom left, #514A9D, #24C6DC);
+  background: linear-gradient(to top right, #514A9D, #24C6DC);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background-attachment: fixed;
+  background-size: cover; }
+
+.middle {
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  position: absolute; }
+  .middle .card {
+    width: 40rem;
+    height: 27rem; }
+  .middle .auth-image {
+    background-image: url("https://images.unsplash.com/1/bag-and-hands.jpg?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=747&q=80");
+    background-size: cover;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    border-top-left-radius: 0.25rem;
+    border-bottom-left-radius: 0.25rem; }
+
+.dashboard {
+  background-color: #fdfffc;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 1em; }
+
+.card-img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%); }
+
+.equal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  display: -webkit-flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap; }

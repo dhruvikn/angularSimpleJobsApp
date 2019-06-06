@@ -1,0 +1,117 @@
+<section ng-controller="dashboardController">
+    <section class="text-center m-5">
+        <h1 class="text-white">Simple Jobs Feed using AngularJs</h1>
+        <a href="#" class="text-white" ng-click="logout()">{{user.email}} - Logout</a>
+    </section>
+
+    <section class="w-75 dashboard shadow rounded">
+        <div class="p-5 text-center" ng-if="isLoading">
+            <span class="p-5">
+                <i class="fas fa-circle-notch fa-spin"></i>&ensp;Fetching data...
+            </span>
+        </div>
+
+        <div ng-if="!isLoading">
+            <div class="row" ng-repeat="jobRow in jobs">
+                <div class="col-md equal" ng-repeat="job  in jobRow">
+                    <div class="card m-3 shadow-sm" style="max-width: 100%; cursor: pointer; width: 100%"
+                        data-target="#jobModal" data-toggle="modal" ng-click="loadJob(job)">
+                        <div class="row no-gutters align-items-center">
+                            <div class="col-md-4">
+                                <img src="{{job.company_logo}}" class="card-img p-4" alt="{{job.company}}">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title">{{job.title}} - {{job.company}}</h5>
+                                    <p class="card-text">
+                                        <i class="fas fa-map-marked-alt fa-fw"></i>&nbsp;{{job.title}}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="jobModal" tabindex="-1" role="dialog" aria-labelledby="jobModalTitle"
+        aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="jobModalTitle">{{jobToShow.title}} at {{jobToShow.company}}</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-md">
+                            <p class="text-muted m-0">
+                                Title -
+                            </p>
+                            <p class="lead">
+                                {{jobToShow.title}}
+                            </p>
+                        </div>
+                        <div class="col-md">
+                            <p class="text-muted m-0">
+                                Location -
+                            </p>
+                            <p class="lead">
+                                {{jobToShow.location}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <p class="text-muted m-0">
+                                Posted by -
+                            </p>
+                            <p class="lead">
+                                <a href="{{jobToShow.company_url || '#'}}">
+                                    <img src="{{jobToShow.company_logo}}" style="width: 2em; height: 2em"
+                                        class="rounded mcr-2">&nbsp;{{jobToShow.company}}
+                                </a>
+                            </p>
+                        </div>
+                        <div class="col-md">
+                            <p class="text-muted m-0">
+                                Posted on -
+                            </p>
+                            <p class="lead">
+                                {{jobToShow.created_at | date}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <p class="text-muted m-0">
+                                Description -
+                            </p>
+                            <p id="description"></p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md">
+                            <p class="text-muted m-0">
+                                How to Apply -
+                            </p>
+                            <p id="how_to_apply"></p>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <a href="{{jobToShow.url}}" class="btn btn-primary" target="_blank">Apply Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
